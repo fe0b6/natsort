@@ -8,6 +8,15 @@ import (
 
 // Sort - Сортируем массив
 func Sort(arr []string) {
+	_sort(arr, true, false)
+}
+
+// Reverse - Сортируем массив в обратном порядке
+func Reverse(arr []string) {
+	_sort(arr, false, true)
+}
+
+func _sort(arr []string, tb, fb bool) {
 
 	sort.Slice(arr, func(i, j int) bool {
 		arr1 := strings.Split(arr[i], "")
@@ -16,34 +25,34 @@ func Sort(arr []string) {
 		var k1, k2 int
 		for {
 			if len(arr1) < k1+1 {
-				return true
+				return tb
 			}
 
 			if len(arr2) < k2+1 {
-				return false
+				return fb
 			}
 
 			v1 := arr1[k1]
 			v2 := arr2[k2]
 			var isNum1, isNum2 bool
 			if isNum(v1) {
-				isNum1 = true
+				isNum1 = tb
 			}
 			if isNum(v2) {
-				isNum2 = true
+				isNum2 = tb
 			}
 
 			// Число всегда вперед
 			if isNum1 && !isNum2 {
-				return true
+				return tb
 			}
 
 			// Если это не числа
 			if !isNum1 {
 				if v1 < v2 {
-					return true
+					return tb
 				} else if v1 > v2 {
-					return false
+					return fb
 				}
 
 				k1++
@@ -75,16 +84,16 @@ func Sort(arr []string) {
 			num2, _ := strconv.ParseInt(strings.Join(nstr2, ""), 10, 64)
 
 			if num1 < num2 {
-				return true
+				return tb
 			} else if num1 > num2 {
-				return false
+				return fb
 			}
 
 			k1++
 			k2++
 		}
 
-		return true
+		return tb
 	})
 }
 
