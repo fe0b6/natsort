@@ -50,9 +50,9 @@ func _sort(arr []string, tb, fb bool) {
 			// Если это не числа
 			if !isNum1 {
 				if v1 == "-" && v2 == "/" {
-					return tb
-				} else if v1 == "/" && v2 == "-" {
 					return fb
+				} else if v1 == "/" && v2 == "-" {
+					return tb
 				} else if v1 < v2 {
 					return tb
 				} else if v1 > v2 {
