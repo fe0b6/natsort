@@ -49,11 +49,7 @@ func _sort(arr []string, tb, fb bool) {
 
 			// Если это не числа
 			if !isNum1 {
-				if v1 == "-" && v2 == "/" {
-					return fb
-				} else if v1 == "/" && v2 == "-" {
-					return tb
-				} else if v1 < v2 {
+				if v1 < v2 {
 					return tb
 				} else if v1 > v2 {
 					return fb
@@ -70,7 +66,7 @@ func _sort(arr []string, tb, fb bool) {
 					nstr1 = append(nstr1, arr1[k])
 					continue
 				}
-				k1 = k
+				k1 = k - 1
 				break
 			}
 
@@ -80,7 +76,7 @@ func _sort(arr []string, tb, fb bool) {
 					nstr2 = append(nstr2, arr2[k])
 					continue
 				}
-				k2 = k
+				k2 = k - 1
 				break
 			}
 
