@@ -83,6 +83,7 @@ func less(str1, str2 string, tb, fb bool) (ok bool) {
 			if isNum(arr1[k]) {
 				nstr1 = append(nstr1, arr1[k])
 				continue
+				k1 = k
 			}
 			k1 = k - 1
 			break
@@ -92,6 +93,7 @@ func less(str1, str2 string, tb, fb bool) (ok bool) {
 		for k := k2; k < len(arr2); k++ {
 			if isNum(arr2[k]) {
 				nstr2 = append(nstr2, arr2[k])
+				k2 = k
 				continue
 			}
 			k2 = k - 1
